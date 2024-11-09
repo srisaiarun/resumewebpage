@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume of Sri Sai Arun</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3e8e41; /* Changed color for the header */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c6e2f; /* Changed color of the title */
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .contact-info, .education, .hobbies, .achievements {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p, .education p, .hobbies p, .achievements p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .github-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Resume of {{ name }}</h1>
+</header>
+
+<div class="container">
+    <div class="profile">
+        <img src="{% static 'app60_3/arun.jpg' %}" alt="Profile Photo" class="profile-photo">
+    </div>
+
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Father's Name:</strong> {{ father_name }}</p>
+        <p><strong>Mother's Name:</strong> {{ mother_name }}</p>
+        <p><strong>Email:</strong> {{ contact_info.email }}</p>
+        <p><strong>Phone:</strong> {{ contact_info.phone }}</p>
+        <p><strong>Address:</strong> {{ contact_info.address }}</p>
+    </div>
+
+    <div class="education">
+        <h2>Education</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>School/College</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in education %}
+                <tr>
+                    <td>{{ item.level }}</td>
+                    <td>{{ item.school }}</td>
+                    <td>{{ item.year }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="hobbies">
+        <h2>Hobbies</h2>
+        <ul>
+            {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="achievements">
+        <h2>Achievements</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Achievement</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for achievement in achievements %}
+                <tr>
+                    <td>{{ achievement.achievement }}</td>
+                    <td>{{ achievement.year }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- GitHub Link at the end of the resume -->
+    <div class="github-link-section">
+        <h2>Links</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GitHub</td>
+                    <td><a href="{{ github_link }}" target="_blank" class="github-link">Visit my GitHub Profile</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Conclusion Section -->
+    <div class="conclusion">
+        <h2>Conclusion</h2>
+        <p>Thank you for taking the time to review my resume. I am excited about the possibility of contributing my skills and knowledge to your team and looking forward to future opportunities. Please feel free to connect with me through my GitHub profile for further collaboration.</p>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Sri Sai Arun | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
