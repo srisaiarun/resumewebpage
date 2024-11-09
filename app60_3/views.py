@@ -25,6 +25,5 @@ def resume_view(request):
         'achievements': [
         ],
         'github_link': 'https://github.com/srisaiarun',  # Add your GitHub link here
-        'photo_url': 'app60_3/arun.jpg',  # Path to the photo (update with your actual file location)
     }
     return render(request, 'resume.html', context)

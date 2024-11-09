@@ -10,7 +10,7 @@ SECRET_KEY = 'your-secret-key-here'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['resumewebpage.onrender.com', 'your-other-domain.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['resumewebpage.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -20,7 +20,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Add your apps here
     'app60_3',  # Your custom app
 ]
 
@@ -48,10 +47,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            # If you have custom template tag libraries, define them here
-            'libraries': {
-                # 'custom_tag': 'app_name.templatetags.custom_tag',  # Example
-            },
         },
     },
 ]
@@ -92,12 +87,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-# Ensure this points to the correct directory
+# Directory to store static files during development (optional)
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # assuming static folder is in the base project directory
 ]
 
-# Ensure this is set up for production (this is optional during development):
+# Static root for production use
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media files (Uploaded files like images)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
